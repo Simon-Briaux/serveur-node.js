@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
-const port = 8080; // Le port sur lequel votre serveur écoutera
+const port = 8095; // Le port sur lequel votre serveur écoutera
 
 // Gestionnaire d'erreurs global
 process.on('uncaughtException', (err) => {
@@ -20,7 +20,19 @@ app.use(bodyParser.json()); // décode le body d'une requête
 
 // Route d'exemple
 app.get('/', (req, res) => {
-  res.send('Bonjour, ceci est le serveur nodejs de Simon');
+  res.send('<!DOCTYPE html>\
+  <html>\
+  <head>\
+    <title>Formulaire Simple</title>\
+  </head>\
+  <body>\
+    <form action="" method="POST">\
+      <label for="login">Login :</label>\
+      <input type="text" id="login" name="login">\
+      <button type="submit">Envoyer</button>\
+    </form>\
+  </body>\
+  </html>');
 });
 
 // Démarrer le serveur
