@@ -11,12 +11,14 @@ process.on('uncaughtException', (err) => {
 
 app.use(bodyParser.json()); // décode le body d'une requête
 
-  app.post('/', (req, res) => {
-    const donneesDuCorps = req.body;
-    console.log(donneesDuCorps);
-    res.send('Données reçues et traitées !');
-  });
-  
+// Route port pour le traitement formulaire
+app.post('/', (req, res) => {
+  const donneesDuCorps = req.body.login;
+  console.log(donneesDuCorps);
+  res.send('Données reçues et traitées !');
+});
+
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // Route d'exemple
 app.get('/', (req, res) => {
